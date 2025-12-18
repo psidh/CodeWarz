@@ -70,10 +70,10 @@ export default function LoginPage() {
 
         <button
           onClick={submit}
-          disabled={loading}
-          className="w-full py-2 bg-blue-600 rounded font-semibold disabled:opacity-60"
+          disabled={submitting}
+          className="cursor-pointer w-full py-2 bg-blue-600 rounded font-semibold disabled:opacity-60"
         >
-          {loading ? 'Loging in...' : 'Login'}
+          {submitting ? 'Logging in...' : 'Login'}
         </button>
       </div>
 
