@@ -8,7 +8,7 @@ export type Problem = {
 export const problems: Problem[] = [
   {
     problemId: "A",
-    title: "Stoner",
+    title: "Rocky Bhai",
     rating: 1000,
     Content: () => (
       <div className="space-y-6 text-white/80">
@@ -267,7 +267,7 @@ NO
   },
   {
     problemId: "E",
-    title: "Longer",
+    title: "Salaar",
     rating: 2000,
     Content: () => (
       <div className="space-y-6 text-white/80">
@@ -397,6 +397,122 @@ l10n
 
 Output
 3
+`}
+          </pre>
+        </section>
+      </div>
+    ),
+  },
+
+  {
+    problemId: "G",
+    title: "Pushpa 2",
+    rating: 2000,
+    Content: () => (
+      <div className="space-y-6 text-white/80">
+        <section>
+          <h2 className="text-2xl font-semibold text-white mb-2">
+            Problem Statement
+          </h2>
+          <p>
+            You are Pushpa planning to rob <span className="high">factory</span>{" "}
+            along a street. Each <span className="high">factory</span> has a
+            certain amount of wood stashed, the only constraint stopping you
+            from robbing each of them is that adjacent
+            <span className="high">factory</span> have security systems
+            connected and it will automatically contact the police if two
+            adjacent <span className="high">factory</span> were broken into on
+            the same night. Given an integer array nums representing the amount
+            of wood of each <span className="high">factory</span>, return the
+            maximum amount of wood you can rob tonight without alerting alerting{" "}
+            <span className="high">Bhanwar Singh Shekhawat IPS</span>.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-white mb-2">Input</h2>
+          <p>
+            The first line contains an integer <span className="high">n</span> (
+            {"1 <= n <= 100"}). It represents the length of the array.
+          </p>
+          <p>Second line contains n spaced array elements.</p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-white mb-2">Output</h2>
+          <p>
+            Print the maximum amount of wood you can rob tonight without
+            alerting <span className="high">Bhanwar Singh Shekhawat IPS</span>.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-white mb-2">Example</h2>
+
+          <pre className="bg-black/60 border border-white/20 rounded-lg p-4 text-sm text-blue-400">
+            {`Input
+4
+1 2 3 1
+
+Output
+4
+`}
+          </pre>
+        </section>
+      </div>
+    ),
+  },
+  {
+    problemId: "H",
+    title: "Water",
+    rating: 2000,
+    Content: () => (
+      <div className="space-y-6 text-white/80">
+        <section>
+          <h2 className="text-2xl font-semibold text-white mb-2">
+            Problem Statement
+          </h2>
+          <p>
+            You are given two strings{" "}
+            <span className="high">
+              The first line contains a string <span>word1</span>
+            </span>{" "}
+            and <span className="high">word2</span>. Merge the strings by adding
+            letters in alternating order, starting with{" "}
+            <span className="high">
+              The first line contains a string <span>word1</span>
+            </span>
+            . If a string is longer than the other, append the additional
+            letters onto the end of the merged string. Return the merged string.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-white mb-2">Input</h2>
+          <p>
+            The first line contains a string <span>word1</span>
+          </p>
+          The second line contains a string <span className="high">word2</span>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-white mb-2">Output</h2>
+          <p>
+            Print the maximum amount of wood you can rob tonight without
+            alerting <span className="high">Bhanwar Singh Shekhawat IPS</span>.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-white mb-2">Example</h2>
+
+          <pre className="bg-black/60 border border-white/20 rounded-lg p-4 text-sm text-blue-400">
+            {`Input
+abc
+pqr
+
+Output
+apbqcr
 `}
           </pre>
         </section>

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 export default function CountdownTimer() {
-  const targetTime = new Date('2025-12-19T14:00:00+05:30').getTime();
+  const targetTime = new Date('2025-12-19T16:00:00+05:30').getTime();
   const [timeLeft, setTimeLeft] = useState(targetTime - Date.now());
 
   useEffect(() => {
@@ -21,14 +21,12 @@ export default function CountdownTimer() {
     );
   }
 
-  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
   const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
   const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
   const seconds = Math.floor((timeLeft / 1000) % 60);
 
   return (
-    <div className="flex justify-center gap-6 text-center font-mono">
-      <TimeBox label="DAYS" value={days} />
+    <div className="flex text-blue-400 justify-center gap-6 text-center font-mono">
       <TimeBox label="HRS" value={hours} />
       <TimeBox label="MIN" value={minutes} />
       <TimeBox label="SEC" value={seconds} />
