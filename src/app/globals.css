@@ -35,3 +35,7 @@ div {
   -ms-user-select: none;
   user-select: none;
 }
+
+button {
+  @apply cur
+}
