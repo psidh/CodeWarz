@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String       @id @default(uuid())
+  email       String       @unique
+  password    String
+  createdAt   DateTime     @default(now())
+  submissions Submission[]
+}
+
+model Submission {
+  id          String   @id @default(uuid())
+  userId      String
+  problemId   String
+  verdict     Verdict  @default(PENDING)
+  stdout      String?
+  stderr      String?
+  createdAt   DateTime @default(now())
+  points      Int      @default(0)
+  sourceCode String?  @default("")
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+enum Verdict {
+  PENDING
+  AC
+  WA
+  CE
+  TLE
+  RE
+}
