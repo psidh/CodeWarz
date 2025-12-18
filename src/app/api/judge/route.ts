@@ -170,13 +170,11 @@ export async function POST(req: Request) {
       data: {
         verdict,
         stdout: judgeData.stdout,
-        points: 0,
       },
     });
 
     return NextResponse.json({
       verdict,
-      points: 0,
       stdout: judgeData.stdout,
       expected: expectedOutput,
       submissionId: submission.id,

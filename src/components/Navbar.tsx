@@ -2,18 +2,35 @@
 import { useAuth } from "@/context/AuthContext";
 import { Code2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export default function Navbar() {
   const router = useRouter();
   const { userId, loggedIn, loading } = useAuth();
   const { logout } = useAuth();
+  const [score, setScore] = useState(0);
 
+  useEffect(() => {
+    async function getScore() {
+      const response = await fetch(`/api/score?userId=${userId}`, {
+        method: "GET",
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setScore(data.points);
+      } else {
+        setScore(0);
+      }
+    }
+    getScore();
+  }, [userId]);
   const logoutCall = async () => {
     const res = await fetch("/api/auth/logout", { method: "POST" });
 
     if (res.ok) {
-      logout(); // 🔑 instant UI update
+      logout();
       toast.success("Logged Out");
       router.push("/login");
     }
@@ -40,14 +57,10 @@ export default function Navbar() {
             </button>
           ) : (
             <div className="flex space-x-8 justify-between items-center">
-              {/* <button
-                onClick={() => {
-                  router.push("/profile");
-                }}
-                className="cursor-pointer font-semibold"
-              >
-                Profile
-              </button> */}
+              <p className="font-bold text-xl">
+                {" "}
+                <span className="text-neutral-500">Score :</span> {score}
+              </p>
               <button
                 onClick={logoutCall}
                 className="text-red-600 cursor-pointer font-semibold"
