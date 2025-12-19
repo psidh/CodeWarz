@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-
+import { Analytics } from "@vercel/analytics/next"
 //@ts-ignore
 import './globals.css';
 import { AuthProvider } from '@/context/AuthContext';
@@ -29,6 +29,7 @@ export default function RootLayout({
           <Navbar />
           <div>{children}</div>
         </AuthProvider>
+        <Analytics />
         <Toaster />
       </body>
     </html>

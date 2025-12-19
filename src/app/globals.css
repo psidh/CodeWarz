@@ -37,5 +37,5 @@ div {
 }
 
 button {
-  @apply cur
+  @apply cursor-pointer
 }
