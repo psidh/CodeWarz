@@ -57,59 +57,48 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen flex items-start justify-center mt-12">
-      <div className="flex items-start justify-between w-4/5 mx-auto">
-        {/* Problems */}
-        <div className="w-full max-w-3xl px-6">
-          <h1 className="text-5xl font-bold mb-12 tracking-tight text-center">
-            Problems
-          </h1>
 
-          <div className="space-y-3">
-            {problems.map((p) => {
-              const meta = verdictMeta(verdicts[p.problemId]);
+    <div className="flex-col flex items-center justify-center">
+      <div className="w-full max-w-5xl px-6">
+        <h1 className="text-5xl font-bold my-12 tracking-tight text-center">
+          Problems
+        </h1>
+        <div className="space-y-3">
+          {problems.map((p) => {
+            const meta = verdictMeta(verdicts[p.problemId]);
 
-              return (
-                <Link
-                  key={p.problemId}
-                  href={`/problems/${p.problemId}`}
-                  className="block"
+            return (
+              <Link
+                key={p.problemId}
+                href={`/problems/${p.problemId}`}
+                className="block"
+              >
+                <div
+                  className={`border flex items-center justify-between rounded-lg px-6 py-4 transition
+                    ${meta.bg} hover:opacity-90`}
                 >
-                  <div
-                    className={`border flex items-center justify-between rounded-lg px-6 py-4 transition
-                      ${meta.bg} hover:opacity-90`}
-                  >
-                    <div className="flex items-baseline w-full justify-between gap-8">
-                      <p className="text-3xl font-bold">{p.problemId}</p>
+                  <div className="flex items-baseline w-full justify-between gap-8">
+                    <p className="text-3xl font-bold">{p.problemId}</p>
 
-                      <div className="flex justify-between w-9/10 items-center">
-                        <p className="text-2xl font-extralight">{p.title}</p>
+                    <div className="flex justify-between w-9/10 items-center">
+                      <p className="text-2xl font-extralight">{p.title}</p>
 
-                        {verdicts[p.problemId] && (
-                          <div className="flex items-center gap-2">
-                            {meta.icon}
-                            <span
-                              className={`text-lg font-semibold ${meta.text}`}
-                            >
-                              {verdicts[p.problemId]}
-                            </span>
-                          </div>
-                        )}
-                      </div>
+                      {verdicts[p.problemId] && (
+                        <div className="flex items-center gap-2">
+                          {meta.icon}
+                          <span
+                            className={`text-lg font-semibold ${meta.text}`}
+                          >
+                            {verdicts[p.problemId]}
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Right Panel */}
-        <div className="flex flex-col items-start gap-4">
-          <CountdownTimer />
-          <div className="font-semibold text-neutral-500 h-[50vh] flex flex-col items-center justify-center">
-            <h1>Leaderboard will be displayed here soon...</h1>
-          </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

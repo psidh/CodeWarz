@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 export default function CountdownTimer() {
-  const targetTime = new Date('2025-12-24T10:00:00+05:30').getTime();
+  const targetTime = new Date('2025-12-24T12:00:00+05:30').getTime();
   const [timeLeft, setTimeLeft] = useState(targetTime - Date.now());
 
   useEffect(() => {
@@ -25,20 +25,22 @@ export default function CountdownTimer() {
   const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
   const seconds = Math.floor((timeLeft / 1000) % 60);
 
+  const isUrgent = timeLeft <= 25 * 60 * 1000;
+  const colorClass = isUrgent ? "text-red-400" : "text-blue-400";
   return (
-    <div className="flex text-blue-400 justify-center gap-6 text-center font-mono">
-      <TimeBox label="HRS" value={hours} />
-      <TimeBox label="MIN" value={minutes} />
-      <TimeBox label="SEC" value={seconds} />
+    <div className={`flex text-blue-400 justify-center text-center font-mono ${colorClass}`}>
+      <TimeBox label="h" value={hours} />
+      <TimeBox label="min" value={minutes} />
+      <TimeBox label="sec" value={seconds} />
     </div>
   );
-}
+},
 
 function TimeBox({ label, value }: { label: string; value: number }) {
   return (
-    <div className="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700">
-      <div className="text-3xl font-bold">{String(value).padStart(2, '0')}</div>
-      <div className="text-xs text-gray-400 mt-1">{label}</div>
+    <div className="px-4 py-2 flex items-baseline gap-[2px] rounded-xl">
+      <div className="text-xl font-bold">{String(value).padStart(2, '0')}</div>
+      <div className="text-sm font-semibold text-blue-400 mt-1">{label}</div>
     </div>
   );
 }

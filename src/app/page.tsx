@@ -53,7 +53,6 @@ export default function CodeWarzHomepage() {
               Join pool of coders solving algorithmic challenges, competing in
               contests.
             </p>
-            <CountdownTimer />
             <button
               onClick={() => {
                 router.push('/problems');

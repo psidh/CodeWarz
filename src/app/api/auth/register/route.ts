@@ -13,7 +13,7 @@ export async function POST(req: Request) {
 
   try {
     await prisma.user.create({
-      data: { email, password: hashed },
+      data: { email, password: hashed, points : -1},
     });
   } catch {
     return NextResponse.json({ error: "User exists" }, { status: 409 });

@@ -4,6 +4,7 @@ import { Code2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import CountdownTimer from "@/components/CountDown";
 
 export default function Navbar() {
   const router = useRouter();
@@ -61,6 +62,10 @@ export default function Navbar() {
                 {" "}
                 <span className="text-neutral-500">Score :</span> {score}
               </p>
+              <div>
+                <CountdownTimer />
+              </div>
+
               <button
                 onClick={logoutCall}
                 className="text-red-600 cursor-pointer font-semibold"
