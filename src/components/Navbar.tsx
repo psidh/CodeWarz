@@ -64,10 +64,6 @@ export default function Navbar() {
             <div className="flex space-x-8 justify-between items-center">
               <p className="font-bold text-xl">
                 {" "}
-                <span className="text-neutral-500">Score :</span> {score}
-              </p>
-              <p className="font-bold text-xl">
-                {" "}
                 <span className="text-neutral-500">Solved :</span> <span>{`${solved} / 8` }</span>
               </p>
               <div>
