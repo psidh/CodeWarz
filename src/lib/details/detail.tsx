@@ -123,6 +123,18 @@ Output
             <li>Sum of n over all test cases ≤ 100</li>
           </ul>
         </section>
+        <section>
+          <h2 className="text-xl font-semibold text-white mb-2">Example</h2>
+          <pre className="bg-black/60 border border-white/20 rounded-lg p-4 text-sm text-blue-400">
+            {`Input
+4
+Hello world this is ChatGPT
+
+
+Output
+Hello world this is`}
+          </pre>
+        </section>
       </div>
     ),
   },
