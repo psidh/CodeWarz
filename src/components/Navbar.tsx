@@ -11,16 +11,20 @@ export default function Navbar() {
   const { userId, loggedIn, loading } = useAuth();
   const { logout } = useAuth();
   const [score, setScore] = useState(0);
+  const [solved, setSolved] = useState<number>(0);
 
   useEffect(() => {
+    if (!userId) return;
+
     async function getScore() {
-      const response = await fetch(`/api/score?userId=${userId}`, {
+      const response = await fetch(`/api/points?userId=${userId}`, {
         method: "GET",
       });
 
       if (response.ok) {
         const data = await response.json();
         setScore(data.points);
+        setSolved(data.solved);
       } else {
         setScore(0);
       }
@@ -61,6 +65,10 @@ export default function Navbar() {
               <p className="font-bold text-xl">
                 {" "}
                 <span className="text-neutral-500">Score :</span> {score}
+              </p>
+              <p className="font-bold text-xl">
+                {" "}
+                <span className="text-neutral-500">Solved :</span> <span>{`${solved} / 8` }</span>
               </p>
               <div>
                 <CountdownTimer />

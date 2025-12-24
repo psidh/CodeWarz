@@ -19,7 +19,6 @@ export default function CodeWarzHomepage() {
 
   return (
     <div className="z-0 min-h-screen text-white overflow-hidden relative">
-      {/* Animated gradient background */}
       <div className="fixed bg-black">
         <div
           className="absolute inset-0 bg-linear-to-br from-blue-800/20 via-blue-500/20 to-white-500/20"

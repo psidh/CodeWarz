@@ -17,6 +17,17 @@ export async function GET(req: Request) {
       },
     });
 
+    const acceptedSubmissions = await prisma.submission.findMany({
+      where : {
+        userId : userId,
+        verdict : "AC",
+      },
+      distinct: ["problemId"],
+      select: {
+        problemId: true,
+      },
+    })
+
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
@@ -24,6 +35,7 @@ export async function GET(req: Request) {
     return NextResponse.json({
       userId,
       points: user.points,
+      solved : acceptedSubmissions.length,
     });
   } catch (err) {
     console.error("GET /api/users/points error:", err);
