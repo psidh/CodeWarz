@@ -34,7 +34,7 @@ export default function CountdownTimer() {
       <TimeBox label="sec" value={seconds} />
     </div>
   );
-},
+}
 
 function TimeBox({ label, value }: { label: string; value: number }) {
   return (
