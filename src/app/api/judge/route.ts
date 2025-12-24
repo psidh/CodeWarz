@@ -40,7 +40,7 @@ export async function POST(req: Request) {
     if (lastSubmission) {
       const diff = Date.now() - new Date(lastSubmission.createdAt).getTime();
 
-      if (diff < 30 * 1000) {
+      if (diff < 15 * 1000) {
         return NextResponse.json(
           { error: "Please wait 30 seconds before submitting again" },
           { status: 429 }
@@ -113,7 +113,7 @@ export async function POST(req: Request) {
           "Authorization": `Bearer ${process.env.JUDGE0_TOKEN}`,
         },
         body: JSON.stringify({
-          sourceCode: code,
+          source_code: code,
           language_id: languageId,
           stdin: input,
         }),
